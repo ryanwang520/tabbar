@@ -1,13 +1,16 @@
-import tabs from '../index/tabs'
+import {subscribe} from '../index/tabs'
 Component({
   data: {
     selected: 0,
     color: "#7A7E83",
     selectedColor: "#3cc51f",
-    list:tabs
+    tabs:null,
   },
   attached() {
-
+     this.subscription = subscribe(this)
+  },
+  detached(){
+    this.sbuscription()
   },
   methods: {
     switchTab(e) {
